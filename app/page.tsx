@@ -1,3 +1,6 @@
+import { skill } from '@/constant/type'
+
 export default function Home() {
-  return <></>;
+  const skillexample: skill = []
+  return <></>
 }
