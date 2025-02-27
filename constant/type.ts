@@ -1,20 +1,20 @@
 export interface skill {
-  ID: number
   character_ID: string
   skill_name: string
-  aka: string
+  aka_kor: string
+  aka_eng: string
   status: string
   command: typeof command
   hit_position: []
-  hit_status: []
   dmg: []
   start: number
   hit: string
   counter: string
   guard: string
-  description_1: string
-  description_2: string
-  overview: string
+  description_1_kor: string
+  description_2_kor: string
+  description_1_eng: string
+  description_2_eng: string
 }
 
 const command = [
