@@ -6,7 +6,7 @@ import { characterList } from '@/constant/character'
 export default function Home() {
   //usestate의 미친듯한 길이...
   const [form, setForm] = useState({})
-  const [character_name, setCharacter_name] = useState('')
+  const [character_name, setCharacter_name] = useState('alisa')
   const [skill_name, setSkill_name] = useState('')
   const [aka_kor, setAka_kor] = useState('')
   const [posture, setPosture] = useState('basic')
@@ -88,6 +88,16 @@ export default function Home() {
             className='py-3 border-2 pl-2 w-48 block'
             value={posture}
             onChange={(e) => setPosture(e.target.value)}
+          />
+        </div>
+        <div className='flex flex-row items-center gap-4 my-3  justify-between'>
+          <div className=''>커맨드 앞 내용</div>
+          <input
+            type='text'
+            name='command'
+            className='py-3 border-2 pl-2 w-48 block'
+            value={command.join('')}
+            onChange={(e) => makeCommand(e.target.value)}
           />
         </div>
         <div className='flex flex-row items-center gap-4 my-3  justify-between'>
@@ -205,16 +215,6 @@ export default function Home() {
             className='py-3 border-2 pl-2 w-48 block'
             value={description_1_eng}
             onChange={(e) => setDescription_1_eng(e.target.value)}
-          />
-        </div>
-        <div className='flex flex-row items-center gap-4 my-3  justify-between'>
-          <div className=''>영어 설명-2</div>
-          <input
-            type='text'
-            name='description_2_eng'
-            className='py-3 border-2 pl-2 w-48 block'
-            value={description_2_eng}
-            onChange={(e) => setDescription_2_eng(e.target.value)}
           />
         </div>
       </div>
