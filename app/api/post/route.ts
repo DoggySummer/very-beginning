@@ -1,18 +1,14 @@
-import { NextApiRequest, NextApiResponse } from 'next'
+import { NextRequest, NextResponse } from 'next/server'
 import connectDB from '@/app/db'
 
-export default async function handler(
-  req: NextApiRequest,
-  res: NextApiResponse
-) {
-  if (req.method === 'POST') {
-    try {
-      const db = (await connectDB).db('tekken_database')
-      let result = await db.collection('tekken_skill').insertOne(req.body)
-      return res.redirect(302, '/list')
-    } catch (error) {
-      return res.status(500).json('DB 저장 오류')
-    }
+export async function POST(request: NextRequest) {
+  try {
+    const db = (await connectDB).db('tekken_database')
+    const body = await request.json()
+    console.log(body)
+    let result = await db.collection('tekken_skill').insertOne(body)
+    return NextResponse.json({ status: 200 })
+  } catch (error) {
+    return NextResponse.json({ error: 'DB 저장 오류' }, { status: 500 })
   }
-  return res.status(500).json('내용을 입력해주세요!')
 }
