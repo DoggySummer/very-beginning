@@ -8,6 +8,7 @@ export default function Home() {
   const [form, setForm] = useState({})
   const [character_name, setCharacter_name] = useState('alisa')
   const [skill_name, setSkill_name] = useState('')
+  const [skill_number, setSkill_number] = useState('')
   const [aka_kor, setAka_kor] = useState('')
   const [posture, setPosture] = useState('basic')
   const [prefix, setPrefix] = useState('')
@@ -30,6 +31,7 @@ export default function Home() {
     floor: false,
     homing: false,
     power: false,
+    crouch: false,
   })
 
   const makeDmgArray = (value: string) => {
@@ -74,6 +76,7 @@ export default function Home() {
     const formData = {
       character_name,
       skill_name,
+      skill_number,
       aka_kor,
       posture,
       prefix,
@@ -107,6 +110,36 @@ export default function Home() {
       const result = await response.json()
       console.log('전송 성공:', result)
       alert('데이터가 성공적으로 전송되었습니다')
+
+      // 모든 state 초기화
+      setCharacter_name('alisa')
+      setSkill_name('')
+      setSkill_number('')
+      setAka_kor('')
+      setPosture('basic')
+      setPrefix('')
+      setCommand([])
+      setSuffix('')
+      setHit_position([])
+      setDmg([])
+      setStart('')
+      setHit('')
+      setCounter('')
+      setGuard('')
+      setDescription_1_kor('')
+      setDescription_2_kor('')
+      setDescription_3_kor('')
+      setDescription_4_kor('')
+      setHitIcons({
+        heat: false,
+        tornado: false,
+        wall: false,
+        floor: false,
+        homing: false,
+        power: false,
+        crouch: false,
+      })
+
     } catch (error) {
       console.error('전송 오류:', error)
       alert('데이터 전송 중 오류가 발생했습니다')
@@ -124,6 +157,16 @@ export default function Home() {
             className='py-3 border-2 pl-2 w-48 block '
             value={character_name}
             onChange={(e) => setCharacter_name(e.target.value)}
+          />
+        </div>
+        <div className='flex flex-row items-center gap-4 my-3  justify-between'>
+          <div className=''>스킬 번호</div>
+          <input
+            type='text'
+            name='skill_number'
+            className='py-3 border-2 pl-2 w-48 block'
+            value={skill_number}
+            onChange={(e) => setSkill_number(e.target.value)}
           />
         </div>
         <div className='flex flex-row items-center gap-4 my-3  justify-between'>
@@ -189,7 +232,7 @@ export default function Home() {
       </div>
       <div className='mx-auto w-[400px] flex flex-col'>
         <div className='flex flex-row items-center gap-4 my-3  justify-between'>
-          <div className=''>히트되는 위치 high middle low</div>
+          <div className=''>히트되는 위치 h m l ( , 로 구분)</div>
           <input
             type='text'
             name='hit_position'
