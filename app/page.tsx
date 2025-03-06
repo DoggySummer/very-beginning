@@ -232,7 +232,7 @@ export default function Home() {
       </div>
       <div className='mx-auto w-[400px] flex flex-col'>
         <div className='flex flex-row items-center gap-4 my-3  justify-between'>
-          <div className=''>히트되는 위치 h m l ( , 로 구분)</div>
+          <div className=''>히트되는 위치 h m l ( , 로 구분) 특수는 abc</div>
           <input
             type='text'
             name='hit_position'
