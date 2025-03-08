@@ -8,10 +8,9 @@ export default function Home() {
   const [form, setForm] = useState({})
   const [character_name, setCharacter_name] = useState('alisa')
   const [skill_name, setSkill_name] = useState('')
-  const [skill_number, setSkill_number] = useState('')
   const [aka_kor, setAka_kor] = useState('')
-  const [posture, setPosture] = useState('basic')
-  const [prefix, setPrefix] = useState('')
+  const [posture, setPosture] = useState('ws')
+  const [prefix, setPrefix] = useState('일어나며')
   const [command, setCommand] = useState<string[]>([])
   const [suffix, setSuffix] = useState('')
   const [hit_position, setHit_position] = useState<string[]>([])
@@ -76,7 +75,6 @@ export default function Home() {
     const formData = {
       character_name,
       skill_name,
-      skill_number,
       aka_kor,
       posture,
       prefix,
@@ -114,10 +112,9 @@ export default function Home() {
       // 모든 state 초기화
       setCharacter_name('alisa')
       setSkill_name('')
-      setSkill_number('')
       setAka_kor('')
-      setPosture('basic')
-      setPrefix('')
+      setPosture('ws')
+      setPrefix('일어나며')
       setCommand([])
       setSuffix('')
       setHit_position([])
@@ -157,16 +154,6 @@ export default function Home() {
             className='py-3 border-2 pl-2 w-48 block '
             value={character_name}
             onChange={(e) => setCharacter_name(e.target.value)}
-          />
-        </div>
-        <div className='flex flex-row items-center gap-4 my-3  justify-between'>
-          <div className=''>스킬 번호</div>
-          <input
-            type='text'
-            name='skill_number'
-            className='py-3 border-2 pl-2 w-48 block'
-            value={skill_number}
-            onChange={(e) => setSkill_number(e.target.value)}
           />
         </div>
         <div className='flex flex-row items-center gap-4 my-3  justify-between'>
@@ -210,7 +197,7 @@ export default function Home() {
           />
         </div>
         <div className='flex flex-row items-center gap-4 my-3  justify-between'>
-          <div className=''>커맨드</div>
+          <div className=''>커맨드 (*은 뒤에 넣어서 표기함)</div>
           <input
             type='text'
             name='command'
@@ -262,6 +249,16 @@ export default function Home() {
           />
         </div>
         <div className='flex flex-row items-center gap-4 my-3  justify-between'>
+          <div className=''>가드 시 프레임</div>
+          <input
+            type='text'
+            name='guard'
+            className='py-3 border-2 pl-2 w-48 block'
+            value={guard}
+            onChange={(e) => setGuard(e.target.value)}
+          />
+        </div>
+        <div className='flex flex-row items-center gap-4 my-3  justify-between'>
           <div className=''>맞췄을 시</div>
           <input
             type='text'
@@ -281,16 +278,7 @@ export default function Home() {
             onChange={(e) => setCounter(e.target.value)}
           />
         </div>
-        <div className='flex flex-row items-center gap-4 my-3  justify-between'>
-          <div className=''>가드 시 프레임</div>
-          <input
-            type='text'
-            name='guard'
-            className='py-3 border-2 pl-2 w-48 block'
-            value={guard}
-            onChange={(e) => setGuard(e.target.value)}
-          />
-        </div>
+
       </div>
       <div className='mx-auto w-[400px] flex flex-col'>
         <div className='flex flex-col gap-4 my-3'>
