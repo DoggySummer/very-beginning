@@ -1,16 +1,14 @@
 'use client'
-import { skill } from '@/constant/type'
-import { ChangeEvent, useState } from 'react'
-import { characterList } from '@/constant/character'
+import { useState } from 'react'
 
 export default function Home() {
   //usestate의 미친듯한 길이...
   const [form, setForm] = useState({})
-  const [character_name, setCharacter_name] = useState('alisa')
+  const [character_name, setCharacter_name] = useState('asuka')
   const [skill_name, setSkill_name] = useState('')
   const [aka_kor, setAka_kor] = useState('')
-  const [posture, setPosture] = useState('ws')
-  const [prefix, setPrefix] = useState('일어나며')
+  const [posture, setPosture] = useState('heat')
+  const [prefix, setPrefix] = useState('히트')
   const [command, setCommand] = useState<string[]>([])
   const [suffix, setSuffix] = useState('')
   const [hit_position, setHit_position] = useState<string[]>([])
@@ -113,8 +111,8 @@ export default function Home() {
       setCharacter_name('alisa')
       setSkill_name('')
       setAka_kor('')
-      setPosture('ws')
-      setPrefix('일어나며')
+      setPosture('heat')
+      setPrefix('히트')
       setCommand([])
       setSuffix('')
       setHit_position([])
