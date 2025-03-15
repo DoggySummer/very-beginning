@@ -4,11 +4,11 @@ import { useState } from 'react'
 export default function Home() {
   //usestate의 미친듯한 길이...
   const [form, setForm] = useState({})
-  const [character_name, setCharacter_name] = useState('asuka')
+  const [character_name, setCharacter_name] = useState('dragunov')
   const [skill_name, setSkill_name] = useState('')
   const [aka_kor, setAka_kor] = useState('')
-  const [posture, setPosture] = useState('heat')
-  const [prefix, setPrefix] = useState('히트')
+  const [posture, setPosture] = useState('throw')
+  const [prefix, setPrefix] = useState('')
   const [command, setCommand] = useState<string[]>([])
   const [suffix, setSuffix] = useState('')
   const [hit_position, setHit_position] = useState<string[]>([])
@@ -108,11 +108,11 @@ export default function Home() {
       alert('데이터가 성공적으로 전송되었습니다')
 
       // 모든 state 초기화
-      setCharacter_name('alisa')
+      setCharacter_name('dragunov')
       setSkill_name('')
       setAka_kor('')
-      setPosture('heat')
-      setPrefix('히트')
+      setPosture('throw')
+      setPrefix('')
       setCommand([])
       setSuffix('')
       setHit_position([])
@@ -195,7 +195,7 @@ export default function Home() {
           />
         </div>
         <div className='flex flex-row items-center gap-4 my-3  justify-between'>
-          <div className=''>커맨드 (*은 뒤에 넣어서 표기함)</div>
+          <div className=''>커맨드 (*은 앞에 넣어서 표기함)</div>
           <input
             type='text'
             name='command'
@@ -217,7 +217,7 @@ export default function Home() {
       </div>
       <div className='mx-auto w-[400px] flex flex-col'>
         <div className='flex flex-row items-center gap-4 my-3  justify-between'>
-          <div className=''>히트되는 위치 h m l ( , 로 구분) 특수는 abc</div>
+          <div className=''>히트되는 위치 h m l 특수는 abc 잡기 t 가불 u</div>
           <input
             type='text'
             name='hit_position'
